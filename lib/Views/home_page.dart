@@ -2,12 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:solar_system_app/Components/my_bottom_nav_bar.dart';
 import 'package:solar_system_app/Components/my_drawer.dart';
 import 'package:solar_system_app/Model/planet.dart';
+import 'package:solar_system_app/Views/planet_detail_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    void navigateToPlanetDetail(BuildContext context, PlanetInfo planet) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PlanetDetailPage(
+            planet: planet,
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -65,16 +77,23 @@ class HomePage extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 //Sun
-                Image.asset(
-                  planets[0].iconImage,
-                  width: 400,
-                  height: 350,
+                GestureDetector(
+                  onTap: (){
+                    navigateToPlanetDetail(context, planets[0]);
+                  },
+                  child: Image.asset(
+                    planets[0].iconImage,
+                    width: 400,
+                    height: 350,
+                  ),
                 ),
                 //Planet 1 (Top)
                 Positioned(
                   top: 30,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[3]);
+                    },
                     child: Image.asset(
                       planets[3].iconImage,
                       width: 50,
@@ -87,7 +106,9 @@ class HomePage extends StatelessWidget {
                   top: 60,
                   left: 90,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[1]);
+                    },
                     child: Image.asset(
                       planets[1].iconImage,
                       width: 50,
@@ -100,7 +121,9 @@ class HomePage extends StatelessWidget {
                   top: 60,
                   right: 90,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[4]);
+                    },
                     child: Image.asset(
                       planets[4].iconImage,
                       width: 50,
@@ -112,7 +135,9 @@ class HomePage extends StatelessWidget {
                 Positioned(
                   left: 20,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[6]);
+                    },
                     child: Image.asset(
                       planets[6].iconImage,
                       width: 100,
@@ -125,7 +150,9 @@ class HomePage extends StatelessWidget {
                   bottom: 60,
                   left: 90,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[2]);
+                    },
                     child: Image.asset(
                       planets[2].iconImage,
                       width: 50,
@@ -137,7 +164,9 @@ class HomePage extends StatelessWidget {
                 Positioned(
                   right: 45,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[5]);
+                    },
                     child: Image.asset(
                       planets[5].iconImage,
                       width: 50,
@@ -150,7 +179,9 @@ class HomePage extends StatelessWidget {
                   bottom: 60,
                   right: 90,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[8]);
+                    },
                     child: Image.asset(
                       planets[8].iconImage,
                       width: 50,
@@ -162,7 +193,9 @@ class HomePage extends StatelessWidget {
                 Positioned(
                   bottom: 20,
                   child: GestureDetector(
-                    onTap: (){},
+                    onTap: () {
+                      navigateToPlanetDetail(context, planets[7]);
+                    },
                     child: Image.asset(
                       planets[7].iconImage,
                       width: 50,
